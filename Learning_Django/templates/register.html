@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block usercontrol-nav %}{% endblock %}
+{% block jumbotron %}
+    {% if form.errors %}{{ form.errors }}{% endif %}
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+        <div class="form-group">
+            <form method="post" action="/accounts/register">
+                {% csrf_token %}
+                {{ form.as_ul }}
+                <input type="submit" class="btn btn-primary" value="submit" />
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block carousel %}{% endblock %}
+{% block footInfo2 %}{% endblock %}
+{% block footInfo1 %}{% endblock %}
+{% block footInfo3 %}{% endblock %}
