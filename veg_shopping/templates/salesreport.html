@@ -1,0 +1,4 @@
+{% load my_template_filter %}
+{% for sale in sales %}
+    <tr><td>{{ sale.id }}</td><td>{{ sale.farmer.name }}</td><td>{{ sale.customer.name }}</td><td>{{ sale.tarkari.name }}</td><td>{{ sale.tarkari.price|multiply:sale.number }}</td></tr>
+{% endfor %}

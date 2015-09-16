@@ -1,0 +1,9 @@
+{% for tarkari in tarkaris %}
+    <script>
+    function addToCart()
+    {
+        window.location.href="/addCart/{{ tarkari.tarkari.id }}/"+document.getElementById('quantity').value;
+    }
+    </script>
+{{ tarkari.tarkari.name }}:{{ tarkari.available }} <input name="quantity" id="quantity" type="text"> <a onclick="addToCart()" href="#">Add to Cart</a>
+{% endfor %}
