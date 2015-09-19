@@ -11,7 +11,7 @@ class Godam(models.Model):
     farmer = models.ForeignKey(Farmer)
     total_number = models.IntegerField(default=0)
     available = models.IntegerField(default=0)
-    date_added = models.DateTimeField('Date Added')
+    date_added = models.DateTimeField('Date Added',auto_now=True)
 
     def __unicode__(self):
         return self.tarkari.name

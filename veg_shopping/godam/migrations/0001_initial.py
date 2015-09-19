@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('total_number', models.IntegerField(default=0)),
                 ('available', models.IntegerField(default=0)),
-                ('date_added', models.DateTimeField(verbose_name=b'Date Added')),
+                ('date_added', models.DateTimeField(auto_now=True, verbose_name=b'Date Added')),
                 ('farmer', models.ForeignKey(to='farmer.Farmer')),
                 ('tarkari', models.ForeignKey(to='tarkari.Tarkari')),
             ],

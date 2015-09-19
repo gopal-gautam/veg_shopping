@@ -1,11 +1,11 @@
 from django.db import models
-from cart.models import Cart
 
 # Create your models here.
 
 class Customer(models.Model):
     name = models.CharField(max_length=50)
-    cart = models.ForeignKey(Cart)
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
 
     def __unicode__(self):
         return self.name

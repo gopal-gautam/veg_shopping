@@ -7,6 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('customer', '0001_initial'),
         ('tarkari', '0001_initial'),
     ]
 
@@ -16,6 +17,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('tarkari_count', models.IntegerField(default=0)),
+                ('customer', models.ForeignKey(to='customer.Customer')),
                 ('tarkari', models.ForeignKey(to='tarkari.Tarkari')),
             ],
         ),

@@ -1,9 +1,23 @@
-{% for tarkari in tarkaris %}
-    <script>
-    function addToCart()
+Hello Mr. {{ customer.name }}. <a href="/customer/logout">Click Here</a> to logout
+<script>
+    function addToCart(id)
     {
-        window.location.href="/addCart/{{ tarkari.tarkari.id }}/"+document.getElementById('quantity').value;
+        location = "/addCart/"+id+"/"+document.getElementById('quantity_'+id).value;
+        console.log(location);
+        window.location.href = location;
     }
     </script>
-{{ tarkari.tarkari.name }}:{{ tarkari.available }} <input name="quantity" id="quantity" type="text"> <a onclick="addToCart()" href="#">Add to Cart</a>
-{% endfor %}
+<table border="1">
+    <thead><td>Tarkari Name</td><td>Available</td><td>Select Your Amount</td><td></td></thead>
+    {% for tarkari in tarkaris %}
+        <tr><td>{{ tarkari.tarkari.name }}</td><td>{{ tarkari.available }}</td><td><input type="text" id="quantity_{{ tarkari.tarkari.id }}"/></td><td><a href="#" onclick="addToCart({{ tarkari.tarkari.id }})">Add To Cart</a></td></tr>
+    {% endfor %}
+</table>
+Total Items at Cart
+<table border="1">
+    <thead><td>Tarkari Name</td><td>Quantity</td><td></td></thead>
+    {% for cart in carts %}
+        <tr><td>{{ cart.tarkari.name }}</td><td>{{ cart.tarkari_count }}</td><td><a href="/deleteItem/{{ cart.id }}">Delete</a></td></tr>
+    {% endfor %}
+</table>
+<a href="/buy">Buy</a>

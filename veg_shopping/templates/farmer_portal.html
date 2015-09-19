@@ -1,0 +1,15 @@
+Hi {{ farmer.name }}. <a href="/farmer/logout">Click Here</a> to logout
+<form method="post" action="/godam/addtarkari">
+    <label for="tarkari_name">Name:</label> <input name="tarkari_name" type="text"/>
+    <label for="tarkari_price">Price:</label> <input name="tarkari_price" type="text"/>
+    <label for="tarkari_expiry_day">Expiry Day</label> <input name="tarkari_expiry_day" type="text"/>
+    <label for="tarkari_quant">Qunatity:</label><input type="text" name="tarkari_quant"/>
+    <input type="submit" value="Add Tarkari"/>
+</form>
+Available Tarkari:
+<table border="1">
+    <thead><td>Tarkari Name</td><td>Quantity</td><td>Date Added</td><td>Quantity Available</td><td>Price</td></thead>
+    {% for list in lists %}
+        <tr><td>{{ list.tarkari.name }}</td><td>{{ list.total_number }}</td><td>{{ list.date_added }}</td><td>{{ list.available }}</td><td>{{ list.tarkari.price }}</td></tr>
+    {% endfor %}
+</table>

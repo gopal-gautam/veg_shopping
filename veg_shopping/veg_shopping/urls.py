@@ -33,7 +33,12 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^listTarkari', 'godam.views.listTarkari'),
     url(r'^addCart/(?P<tarkari_id>\d+)/(?P<number>\d+)','cart.views.addToCart'),
-    url(r'^$','shop.views.register'),
-    url(r'^home','shop.views.register'),
-    url(r'^report','sales.views.createReport')
+    url(r'^$','customer.views.login'),
+    url(r'^home','customer.views.login'),
+    url(r'^report','sales.views.createReport'),
+    url(r'^farmer/', include('farmer.urls')),
+    url(r'^customer/', include('customer.urls')),
+    url(r'^godam/', include('godam.urls')),
+    url(r'^deleteItem/(?P<cart_id>\d+)','cart.views.delete'),
+    url(r'^buy','cart.views.buy')
 ]
